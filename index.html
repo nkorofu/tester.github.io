@@ -1,22 +1,64 @@
 <!DOCTYPE html>
-<html>
-    <body>
-        <h1>What were you expecting?</h1>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>警告メッセージ</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+            background-color: black;
+            color: red;
+            animation: flash 1s infinite alternate;
+        }
+        h1 {
+            font-size: 48px;
+            animation: shake 0.5s;
+        }
+        @keyframes flash {
+            0% { background-color: black; }
+            100% { background-color: crimson; }
+        }
+        @keyframes shake {
+            0% { transform: translate(0); }
+            25% { transform: translate(-5px); }
+            50% { transform: translate(5px); }
+            75% { transform: translate(-5px); }
+            100% { transform: translate(5px); }
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>進むを押して！</h1>
+    <button id="proceedButton">進む</button>
 
-                    ga('create', 'UA-60737367-1', 'auto');
-                    ga('send', 'pageview');
-                </script>
-                <script>
-                    var total = "";
-                    for( var i = 0; i < 100000; i++ ) {
-                        total = total + i.toString();
-                        history.pushState(0,0, total );
-                    }
-                </script>
-            </body>
-        </html>
+    <script>
+        document.getElementById('proceedButton').onclick = function() {
+            document.body.innerHTML = `
+                <h1 class="warning">警告！デバイスが固まっています！</h1>
+                <p>お使いのデバイスを再起動してください。</p>
+                <audio id="alertSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+                <button onclick="triggerAlert()">注意を促す</button>
+            `;
+            const sound = document.getElementById('alertSound');
+            sound.play();
+        };
+
+        function triggerAlert() {
+            const sound = document.getElementById('alertSound');
+            sound.play();
+            alert('これは冗談です！ご安心ください。');
+        }
+    </script>
+</body>
+</html>
