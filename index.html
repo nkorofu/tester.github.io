@@ -28,11 +28,11 @@
             100% { transform: translate(5px); }
         }
         button {
-            padding: 15px 30px;
+            padding: 10px 20px;
             font-size: 20px;
-            background-color: red;
-            color: white;
-            border: none;
+            background-color: white; /* 普通の色合い */
+            color: black; /* 普通の文字色 */
+            border: 2px solid red; /* ボーダーは赤 */
             cursor: pointer;
             margin-top: 20px;
         }
@@ -42,16 +42,18 @@
     <h1>進むを押して！</h1>
     <button id="proceedButton">進む</button>
 
+    <audio id="alertSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+
     <script>
         document.getElementById('proceedButton').onclick = function() {
+            const sound = document.getElementById('alertSound');
+            sound.play(); // 音を再生
             document.body.innerHTML = `
                 <h1 class="warning">警告！デバイスが固まっています！</h1>
                 <p>お使いのデバイスを再起動してください。</p>
                 <audio id="alertSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
                 <button onclick="triggerAlert()">注意を促す</button>
             `;
-            const sound = document.getElementById('alertSound');
-            sound.play();
         };
 
         function triggerAlert() {
