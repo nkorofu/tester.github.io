@@ -3,64 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>警告メッセージ</title>
+    <title>サンプルページ</title>
     <style>
         body {
-            text-align: center;
-            padding: 50px;
             background-color: black;
-            color: white; /* デフォルトの文字色 */
+            color: white;
+            font-family: Arial, sans-serif;
         }
         h1 {
-            font-size: 48px;
-            color: blue; /* 一番初めのタイトルの色 */
-            animation: shake 0.5s;
-        }
-        .warning {
-            color: red; /* 警告文の色 */
-            font-size: 48px;
-        }
-        @keyframes shake {
-            0% { transform: translate(0); }
-            25% { transform: translate(-5px); }
-            50% { transform: translate(5px); }
-            75% { transform: translate(-5px); }
-            100% { transform: translate(5px); }
+            color: blue;
+            text-align: center;
         }
         button {
+            background-color: white;
+            color: black;
+            border: 2px solid red;
             padding: 10px 20px;
-            font-size: 20px;
-            background-color: white; /* 普通の色合い */
-            color: black; /* 普通の文字色 */
-            border: 2px solid red; /* ボーダーは赤 */
             cursor: pointer;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>進むを押して！</h1>
-    <button id="proceedButton">進む</button>
-
-    <audio id="alertSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+    <h1>ボタンをクリックして！</h1>
+    <button id="myButton">クリック</button>
 
     <script>
-        document.getElementById('proceedButton').onclick = function() {
-            const sound = document.getElementById('alertSound');
-            sound.play(); // 音を再生
-            document.body.innerHTML = `
-                <h1 class="warning">警告！デバイスが固まっています！</h1>
-                <p>お使いのデバイスを再起動してください。</p>
-                <audio id="alertSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
-                <button onclick="triggerAlert()">注意を促す</button>
-            `;
+        document.getElementById('myButton').onclick = function() {
+            alert('ボタンがクリックされました！');
         };
-
-        function triggerAlert() {
-            const sound = document.getElementById('alertSound');
-            sound.play();
-            alert('これは冗談です！ご安心ください。');
-        }
     </script>
 </body>
 </html>
