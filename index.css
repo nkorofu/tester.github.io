@@ -1,0 +1,17 @@
+body {
+    background-color: black; /* 背景色を黒に */
+    color: white; /* 文字色を白に */
+    font-family: Arial, sans-serif; /* フォントを設定 */
+}
+
+h1 {
+    color: blue; /* h1の文字色を青に */
+    text-align: center; /* 中央揃え */
+}
+
+button {
+    background-color: white; /* ボタンの背景色を白に */
+    color: black; /* ボタンの文字色を黒に */
+    border: 2px solid red; /* ボタンのボーダーを赤に */
+    padding: 10px 20px; /* ボタンの内側の余白を設定 */
+}
