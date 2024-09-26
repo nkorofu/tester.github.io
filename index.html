@@ -9,16 +9,16 @@
             text-align: center;
             padding: 50px;
             background-color: black;
-            color: red;
-            animation: flash 1s infinite alternate;
+            color: white; /* デフォルトの文字色 */
         }
         h1 {
             font-size: 48px;
+            color: blue; /* 一番初めのタイトルの色 */
             animation: shake 0.5s;
         }
-        @keyframes flash {
-            0% { background-color: black; }
-            100% { background-color: crimson; }
+        .warning {
+            color: red; /* 警告文の色 */
+            font-size: 48px;
         }
         @keyframes shake {
             0% { transform: translate(0); }
